@@ -46,14 +46,19 @@ pip install -r requirements.txt
   ```
 * `draw_table` - Рисует таблицу со средними зарплатами и количеством вакансий. Требует на вход название таблицы и словарь из элементов с вложенными ключами `vacancies_found`, `vacancies_processed`, `average_salary`.
 ```python
-payload = {
-            "element": {
-              "vacancies_found": vacancies_found,
-              "vacancies_processed": vacancies_processed,
-              "average_salary": average_salary,
-                }
-            }
-draw_table(payload, "new table")
+payload = get_vacancies_for_hh()
+draw_table(payload, "HeadHunter Moscow")
++HeadHunter Moscow------+------------------+---------------------+------------------+
+| Язык программирования | Вакансий найдено | Вакансий обработано | Средняя зарплата |
++-----------------------+------------------+---------------------+------------------+
+| Python                | 17               | 9                   | 162777           |
+| Java                  | 1                | 1                   | 105000           |
+| Javascript            | 4                | 4                   | 108700           |
+| C++                   | 9                | 3                   | 133400           |
+| C#                    | 0                | 0                   | 0                |
+| Ruby                  | 0                | 0                   | 0                |
+| Go                    | 0                | 0                   | 0                |
++-----------------------+------------------+---------------------+------------------+
 ```
 
 ### Цель проекта
