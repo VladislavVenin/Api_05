@@ -85,7 +85,7 @@ def get_vacancies_for_hh():
             page_response.raise_for_status()
             page_payload = page_response.json()
             result_page.append(page_payload)
-            print(payload["text"], page)
+
             pages_number = page_payload["pages"]
             page += 1
 
@@ -187,6 +187,7 @@ def main():
     superjob_payload = get_vacancies_for_superjob(token)
     draw_table(superjob_payload, "SuperJob Moscow")
 
+    print()
     hh_payload = get_vacancies_for_hh()
     draw_table(hh_payload, "HeadHunter Moscow")
 
