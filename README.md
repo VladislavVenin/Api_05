@@ -50,14 +50,8 @@ pip install -r requirements.txt
 
 ### Пример запуска
 
-```python
-    token = decouple.config('SUPER_JOB_TOKEN')
-    superjob_stats = get_vacancies_stats_for_superjob(token)
-    draw_table(superjob_stats, "SuperJob Moscow")
-
-    print()
-    hh_stats = get_vacancies_stats_for_hh()
-    draw_table(hh_stats, "HeadHunter Moscow")
+```
+    python main.py
 ```
 Вывод:
 ```
