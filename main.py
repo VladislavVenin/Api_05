@@ -51,15 +51,13 @@ def predict_rub_salary_for_hh(vacancy):
 def get_vacancies_stats_for_hh():
     moscow_id = 1
     language_stats = {}
+    hh_url = "https://api.hh.ru/vacancies"
     for language in LANGUAGES:
-        hh_response = requests.get("https://api.hh.ru/vacancies", params={'text': language, 'area': moscow_id})
-        hh_response.raise_for_status()
-
         page = 0
         pages_number = 1
         all_pages = []
         while page < pages_number:
-            page_response = requests.get(hh_response.url, params={'page': page})
+            page_response = requests.get(hh_url, params={'text': language, 'area': moscow_id, 'page': page})
             page_response.raise_for_status()
             page_payload = page_response.json()
             all_pages.append(page_payload)
