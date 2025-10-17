@@ -75,15 +75,15 @@ def get_vacancies_stats_for_hh():
                 if predicted_salary:
                     count += 1
                     salary_sum += predicted_salary
-            try:
-                average_salary = int(salary_sum/count)
-            except ZeroDivisionError:
-                average_salary = 0
+        try:
+            average_salary = int(salary_sum/count)
+        except ZeroDivisionError:
+            average_salary = 0
 
-            language_stats[language] = {}
-            language_stats[language]["vacancies_found"] = vacancies["found"]
-            language_stats[language]["vacancies_processed"] = count
-            language_stats[language]["average_salary"] = average_salary
+        language_stats[language] = {}
+        language_stats[language]["vacancies_found"] = vacancies["found"]
+        language_stats[language]["vacancies_processed"] = count
+        language_stats[language]["average_salary"] = average_salary
 
     return language_stats
 
@@ -118,15 +118,15 @@ def get_vacancies_stats_for_superjob(token):
                 if predicted_salary:
                     count += 1
                     salary_sum += predicted_salary
-            try:
-                average_salary = int(salary_sum/count)
-            except ZeroDivisionError:
-                average_salary = 0
+        try:
+            average_salary = int(salary_sum/count)
+        except ZeroDivisionError:
+            average_salary = 0
 
-            language_stats[language] = {}
-            language_stats[language]["vacancies_found"] = page_payload["total"]
-            language_stats[language]["vacancies_processed"] = count
-            language_stats[language]["average_salary"] = average_salary
+        language_stats[language] = {}
+        language_stats[language]["vacancies_found"] = page_payload["total"]
+        language_stats[language]["vacancies_processed"] = count
+        language_stats[language]["average_salary"] = average_salary
     return language_stats
 
 
