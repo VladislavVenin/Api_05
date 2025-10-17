@@ -3,21 +3,18 @@ import decouple
 from terminaltables import AsciiTable
 
 
-LANGUAGES = (
-    "Python",
-    "Java",
-    "Javascript",
-    "C++",
-    "C#",
-    "Ruby",
-    "Go",
-    )
+LANGUAGES = ("Python", "Java", "Javascript", "C++", "C#", "Ruby", "Go",)
 
 
 def draw_table(payload, name):
     table_data = [
-                ["Язык программирования", "Вакансий найдено", "Вакансий обработано", 'Средняя зарплата']
-            ]
+        [
+            "Язык программирования",
+            "Вакансий найдено",
+            "Вакансий обработано",
+            'Средняя зарплата',
+        ],
+    ]
     for language, stats in payload.items():
         row = []
         row.append(language)
