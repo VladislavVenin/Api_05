@@ -80,11 +80,11 @@ def get_vacancies_stats_for_hh():
         except ZeroDivisionError:
             average_salary = 0
 
-        language_stats[language] = {}
-        language_stats[language]["vacancies_found"] = vacancies["found"]
-        language_stats[language]["vacancies_processed"] = count
-        language_stats[language]["average_salary"] = average_salary
-
+        language_stats[language] = {
+            "vacancies_found": vacancies["found"],
+            "vacancies_processed": count,
+            "average_salary": average_salary,
+        }
     return language_stats
 
 
@@ -123,10 +123,11 @@ def get_vacancies_stats_for_superjob(token):
         except ZeroDivisionError:
             average_salary = 0
 
-        language_stats[language] = {}
-        language_stats[language]["vacancies_found"] = page_payload["total"]
-        language_stats[language]["vacancies_processed"] = count
-        language_stats[language]["average_salary"] = average_salary
+        language_stats[language] = {
+            "vacancies_found": page_payload["total"],
+            "vacancies_processed": count,
+            "average_salary": average_salary,
+        }
     return language_stats
 
 
