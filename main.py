@@ -35,17 +35,16 @@ def calculate_salary(payment_from, payment_to):
 
 
 def predict_rub_salary_for_superJob(vacancy):
-    if vacancy["payment_from"] or vacancy["payment_to"]:
-        if vacancy["currency"] == "rub":
-            return calculate_salary(vacancy["payment_from"], vacancy["payment_to"])
+    if (vacancy["payment_from"] or vacancy["payment_to"]
+            and vacancy["currency"] == "rub"):
+        return calculate_salary(vacancy["payment_from"], vacancy["payment_to"])
     return None
 
 
 def predict_rub_salary_for_hh(vacancy):
     salary = vacancy["salary"]
-    if salary:
-        if salary["currency"] == "RUR":
-            return calculate_salary(salary["from"], salary["to"])
+    if salary and salary["currency"] == "RUR":
+        return calculate_salary(salary["from"], salary["to"])
     return None
 
 
