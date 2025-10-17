@@ -50,9 +50,10 @@ def predict_rub_salary_for_hh(vacancy):
 
 
 def get_vacancies_stats_for_hh():
+    moscow_id = 1
     language_stats = {}
     for language in LANGUAGES:
-        hh_response = requests.get("https://api.hh.ru/vacancies", params={'text': language, 'area': 1})
+        hh_response = requests.get("https://api.hh.ru/vacancies", params={'text': language, 'area': moscow_id})
         hh_response.raise_for_status()
 
         page = 0
@@ -89,13 +90,14 @@ def get_vacancies_stats_for_hh():
 
 
 def get_vacancies_stats_for_superjob(token):
+    moscow_id = 4
     sj_url = "https://api.superjob.ru/2.0/vacancies"
     headers = {
         'X-Api-App-Id': token
     }
     language_stats = {}
     for language in LANGUAGES:
-        superjob_response = requests.get(sj_url, headers=headers, params={'keyword': language, 'town': 4})
+        superjob_response = requests.get(sj_url, headers=headers, params={'keyword': language, 'town': moscow_id})
         superjob_response.raise_for_status()
         page_payload = superjob_response.json()
 
